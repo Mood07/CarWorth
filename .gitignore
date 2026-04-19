@@ -19,7 +19,6 @@ models/*.joblib
 models/*.pkl
 models/*.json
 !models/.gitkeep
-assets/*.png
 !assets/.gitkeep
 
 # Kaggle credentials
