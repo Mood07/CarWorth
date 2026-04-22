@@ -156,18 +156,32 @@ if submitted:
     st.subheader("Why this price? — SHAP Explanation")
 
     shap_values_single = explainer.shap_values(df_input)
+
+    # Decode categorical values back to original strings for display
+    display_data = []
+    for feat in features:
+        val = df_input[feat].values[0]
+        if feat in encoders:
+            try:
+                val = encoders[feat].inverse_transform([int(val)])[0]
+            except Exception:
+                pass
+        display_data.append(val)
+
     explanation = shap.Explanation(
         values=shap_values_single[0],
         base_values=explainer.expected_value,
-        data=df_input.values[0],
+        data=display_data,
         feature_names=features
     )
 
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig = plt.figure(figsize=(9, 5))
     shap.waterfall_plot(explanation, show=False, max_display=12)
-    plt.title(f"SHAP Waterfall — Prediction: ${result['price']:,.0f}")
+    plt.title(f"SHAP Waterfall — Prediction: ${result['price']:,.0f}", fontsize=11)
     plt.tight_layout()
-    st.pyplot(fig, use_container_width=True)
+    col_shap1, col_shap2, col_shap3 = st.columns([1, 3, 1])
+    with col_shap2:
+        st.pyplot(fig, use_container_width=True)
     plt.close()
 
     st.caption(
