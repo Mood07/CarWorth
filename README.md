@@ -55,6 +55,28 @@ CarWorth/
 
 ---
 
+## 📸 Visuals
+
+### Price Distribution
+![Price Distribution](assets/01_eda/price_distribution.png)
+
+### Price vs Key Features
+![Price vs Features](assets/01_eda/price_vs_features.png)
+
+### Model Evaluation — Predicted vs Actual
+![Model Evaluation](assets/03_model/model_evaluation.png)
+
+### Feature Importance
+![Feature Importance](assets/03_model/feature_importance.png)
+
+### SHAP Global Summary
+![SHAP Summary](assets/04_shap/shap_summary.png)
+
+### SHAP Waterfall — Single Prediction
+![SHAP Waterfall](assets/04_shap/shap_waterfall.png)
+
+---
+
 ## 🧹 Data Cleaning & Feature Engineering
 
 1️⃣ Drop irrelevant/high-missing columns (`county` >99%, `size` ~72%, `VIN`, `url`, etc.)  
@@ -78,10 +100,10 @@ CarWorth/
 
 | Metric | Value |
 |---|---|
-| R² | ~0.76 |
-| MAE | ~$2,800 |
-| RMSE | ~$5,100 |
-| MAPE | ~18% |
+| R² | 0.774 |
+| MAE | $3,898 |
+| RMSE | $6,954 |
+| MAPE | 43.5% |
 
 > Evaluated on 20% holdout set. Cross-validated with 5-fold KFold.
 
