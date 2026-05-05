@@ -10,16 +10,11 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
-# CarWorth — data & model artifacts (too large for git)
+# CarWorth — data artifacts (too large for git)
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
-models/*.joblib
-models/*.pkl
-models/*.json
-!models/.gitkeep
-!assets/.gitkeep
 
 # Kaggle credentials
 kaggle.json
